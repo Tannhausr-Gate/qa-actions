@@ -6,9 +6,9 @@ on:
   workflow_dispatch:
 
 env:
-  AWS_REGION: us-east-1
+  AWS_REGION: us-east-2
   EB_APPLICATION_NAME: qa-actions-app
-  EB_ENVIRONMENT_NAME: qa-actions-env
+  EB_ENVIRONMENT_NAME: Qa-actions-app-env
   S3_BUCKET: qa-actions-eb-deploys
 
 jobs:
