@@ -9,7 +9,7 @@ env:
   AWS_REGION: us-east-2
   EB_APPLICATION_NAME: qa-actions-app
   EB_ENVIRONMENT_NAME: Qa-actions-app-env
-  S3_BUCKET: qa-actions-eb-deploys
+  S3_BUCKET: qa
 
 jobs:
   deploy:
@@ -39,7 +39,7 @@ jobs:
         run: |
           aws elasticbeanstalk create-application-version \
             --application-name ${{ env.EB_APPLICATION_NAME }} \
-            --version-label ${{ github.sha }} \
+            --version-label ${{ github.sha }}-${{ github.run_id }}` \
             --source-bundle S3Bucket=${{ env.S3_BUCKET }},S3Key=deploy-${{ github.sha }}.zip
 
       - name: Deploy new version to environment
